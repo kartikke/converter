@@ -1,20 +1,9 @@
 document.getElementById('convertBtn').addEventListener('click', function() {
-    const temperature = parseFloat(document.getElementById('temperature').value);
-    const unit = document.getElementById('unit').value;
-
-    if (!isNaN(temperature)) {
-        let convertedTemperature, resultUnit;
-
-        if (unit === 'celsius') {
-            convertedTemperature = (temperature * 9/5) + 32;
-            resultUnit = 'Fahrenheit';
-        } else {
-            convertedTemperature = (temperature - 32) * 5/9;
-            resultUnit = 'Celsius';
-        }
-
-        document.getElementById('result').textContent = `${temperature}° ${unit} is ${convertedTemperature.toFixed(2)}° ${resultUnit}`;
+    const celsius = parseFloat(document.getElementById('celsiusInput').value);
+    if (!isNaN(celsius)) {
+        const fahrenheit = (celsius * 9/5) + 32;
+        document.getElementById('result').textContent = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
     } else {
-        document.getElementById('result').textContent = 'Please enter a valid number.';
+        document.getElementById('result').textContent = 'Invalid input. Please enter a valid number.';
     }
 });
